@@ -169,6 +169,11 @@ Summary <- data.frame(
                       length(mbase[mbase$PL2==0 & mbase$Staking2>0,]$PL2), length(mbase[mbase$PL2<0,]$PL2),
                       sum(mbase[mbase$Staking2>0,]$Staking2), sum(mbase[mbase$PL2>0,]$PL2),
                       sum(mbase[mbase$PL2==0 & mbase$Staking2>0,]$Staking2), sum(mbase[mbase$PL2<0,]$PL2)))
+
+# Total Profit & Lose on different companies
+COMPL <- data.frame(PL=unlist(lapply(split(mbase,mbase$COM), function(x) sum(x$PL))),
+                    PL2=unlist(lapply(split(mbase,mbase$COM), function(x) sum(x$PL2))))
 Summary
+COMPL
 
 ```
