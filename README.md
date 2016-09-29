@@ -1,13 +1,21 @@
-# Kelly-Criterion
+# Application of Kelly Criterion model in Sportsbook Investment
 
-## Summary
+## Abstract
 
-  I have simulate two seasons English 2011/12 and 201213, all source codes and dataset can be found in the repo.
+  The investment in sportsbook industry is very popular in Europe and United States but not yet in Asia. I tried to refer to [*Dixon and Coles (1996)*]() and also [*Karlis and Ntzuofras (2005)*]() and complete my **®model** *®γσ, Eng Lian Hu (2016)*^[1st paper in [3. References]] but the return is not stable and I try to apply Kelly model and generates an impressive returns which is in section [1. Kelly Criterion].
+  
+  The section [2. Comparison of Betting Strategy in Sportsbook Investment] will not only compare the staking model in betting model validation *®γσ, Eng Lian Hu (2016)*^[2nd paper in [3. References]]. and also Kelly model in section 1 but also enhanced.
 
-- <http://rpubs.com/englianhu/kelly_eng1112>
-- <http://rpubs.com/englianhu/kelly_eng1213>
+## 1. Kelly Criterion
 
-## Result of Kelly Staking model on English Soccer 2011/2012
+### 1.2 Summary
+
+  I have simulate a betting model on 13 bookmakers across 2 soccer seasons in English 2011/12 and 2012/13.
+
+  - [Application of Kelly model in English Soccer session 2011/12](http://rpubs.com/englianhu/kelly_eng1112)
+  - [Application of Kelly model in English Soccer session 2012/13](http://rpubs.com/englianhu/kelly_eng1213)
+
+### 1.3 Result of Kelly Staking model on English Soccer 2011/2012
 
 | No |          Category |  Bets_Wf_Overround |  Bets_No_Overround |
 |:--:|:-----------------:|:------------------:|:------------------:|
@@ -42,7 +50,7 @@
 
 *table 2.1.2 : Return of Investment on the Odds Price with/without Overrounds.*
 
-## Result of Kelly Staking model on English Soccer 2012/2013
+### 1.4 Result of Kelly Staking model on English Soccer 2012/2013
 
 | No |          Category |  Bets_Wf_Overround |  Bets_No_Overround |
 |:--:|:-----------------:|:------------------:|:------------------:|
@@ -76,3 +84,24 @@
 |       Titanbet |   0.08604952 |  0.1364944 |
 
 *table 2.1.2 : Return of Investment on the Odds Price with/without Overrounds.*
+
+## 2. Comparison of Betting Strategy in Sportsbook Investment
+
+  By conduct above betting model and get a positive and impressive returns from the experiments, here I have try to retrive the betting model of British sportsbook consultancy firm A.
+  
+  Besides, by refer to [3. References] I try to build a simple shinyApp for betting model prior to build up my own **Scibrokes®** business website...
+
+### 2.1 ...
+
+**betting-models** shinyApp
+
+
+
+## 3. References
+
+1. [**Odds Modelling and Testing Inefficiency of Sports Bookmakers : Rmodel** by ®γσ, Eng Lian Hu (2016)](https://github.com/scibrokes/odds-modelling-and-testing-inefficiency-of-sports-bookmakers/blob/master/Odds%20Modelling%20and%20Testing%20Inefficiency%20of%20Sports-Bookmakers.pdf)
+2. [**Betting-Strategy-and-Model-Validation** by ®γσ, Eng Lian Hu (2016)](https://github.com/scibrokes/betting-strategy-and-model-validation)
+3. [**Systematic Investor Toolbox (SIT)** *by Michael Kapler (2012)*](https://github.com/englianhu/SIT)
+4. [**MatchOdds.org** *by Simon Collins (2010)*](http://www.matchodds.org/ords/f?p=101:1::::::)
+
+**Powered by - Copyright® Intellectual Property Rights of <img src='figure/oda-army.jpg' width='24'> [Scibrokes®](http://www.scibrokes.com)個人の経営企業**
