@@ -103,5 +103,6 @@
 2. [**Betting-Strategy-and-Model-Validation** by ®γσ, Eng Lian Hu (2016)](https://github.com/scibrokes/betting-strategy-and-model-validation)
 3. [**Systematic Investor Toolbox (SIT)** *by Michael Kapler (2012)*](https://github.com/englianhu/SIT)
 4. [**MatchOdds.org** *by Simon Collins (2010)*](http://www.matchodds.org/ords/f?p=101:1::::::)
+5. [**Bayesian statistics, health economics and random stuff** *by Gianluca Baio*](https://gianlubaio.blogspot.my/2016/10/shiny-happy-people-in-land-of-czar.html)
 
 **Powered by - Copyright® Intellectual Property Rights of <img src='figure/oda-army.jpg' width='24'> [Scibrokes®](http://www.scibrokes.com)個人の経営企業**
