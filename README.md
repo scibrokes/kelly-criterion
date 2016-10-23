@@ -2,7 +2,7 @@
 
 ## Abstract
 
-  The investment in sportsbook industry is very popular in Europe and United States but not yet in Asia. I tried to refer to [*Dixon and Coles (1996)*]() and also [*Karlis and Ntzuofras (2005)*]() and complete my **®model** *®γσ, Eng Lian Hu (2016)*^[1st paper in [3. References]] but the return is not stable and I try to apply Kelly model and generates an impressive returns which is in section [1. Kelly Criterion].
+  The investment in sportsbook industry is very popular in Europe and United States but not yet in Asia. I tried to refer to *Dixon and Coles (1996)*, *Karlis and Ntzuofras (2005)* and some others papers to complete my **®model** *®γσ, Eng Lian Hu (2016)*^[1st paper in [3. References]] but the return is not stable and I try to apply Kelly model and generates an impressive returns which is in section [1. Kelly Criterion].
   
   The section [2. Comparison of Betting Strategy in Sportsbook Investment] will not only compare the staking model in betting model validation *®γσ, Eng Lian Hu (2016)*^[2nd paper in [3. References]]. and also Kelly model in section 1 but also enhanced.
 
@@ -10,88 +10,56 @@
 
 ### 1.2 Summary
 
-  I have simulate a betting model on 13 bookmakers across 2 soccer seasons in English 2011/12 and 2012/13.
+  I have simulate a betting model on 13 bookmakers across 2 soccer seasons in English 2011/12 and 2012/13. Kindly refer to below techincal research.
 
   - [Application of Kelly model in English Soccer session 2011/12](http://rpubs.com/englianhu/kelly_eng1112)
   - [Application of Kelly model in English Soccer session 2012/13](http://rpubs.com/englianhu/kelly_eng1213)
 
 ### 1.3 Result of Kelly Staking model on English Soccer 2011/2012
 
-| No |          Category |  Bets_Wf_Overround |  Bets_No_Overround |
-|:--:|:-----------------:|:------------------:|:------------------:|
-| 1  |     No of Matches |         4896.00000 |         4896.00000 |
-| 2  |          Total PL |          353.96966 |          381.06299 |
-| 3  |        No of Bets |         2268.00000 |         2404.00000 |
-| 4  |    No of Won Bets |         1531.00000 |         1584.00000 |
-| 5  | No of Voided Bets |          128.00000 |          143.00000 |
-| 6  |   No of Lose Bets |          609.00000 |          677.00000 |
-| 7  |           Staking |          636.98372 |          705.89203 |
-| 8  |   Won Bets Stakes |          453.43724 |          496.09555 |
-| 9  |     Voided Stakes |           19.13296 |           22.67241 |
-| 10 |  Lose Bets Stakes |          -99.46758 |         -115.03256 |
+| No |          Category |  With Spreads (2011/12) | Ratio (%) |  Without Spreads (2011/12) | Ratio (%) |  With Spreads (2012/13) | Ratio (%) |  Without Spreads (2012/13) | Ratio (%) |
+|:--:|:-----------------:|:-----------------------:|:---------:|:--------------------------:|:---------:|:-----------------------:|:---------:|:--------------------------:|:---------:|
+| 1  |     No of Matches |                   4,896 |         1 |                      4,896 |         1 |                   5,514 |         1 |                      5,514 |         1 |
+| 2  |          Total PL |             \$353.96966 |    55.57% |                \$381.06299 |    53.98% |              \$448.8993 |    59.35% |                \$488.91841 |    58.60% |
+| 3  |        No of Bets |                   2,268 |    46.32% |                      2,404 |    49.10% |                   2,570 |    46.61% |                      2,697 |    48.91% |
+| 4  |    No of Won Bets |                   1,531 |    31.27% |                      1,584 |    32.35% |                   1,765 |    32.01% |                      1,824 |    33.08% |
+| 5  | No of Voided Bets |                     128 |     2.61% |                        143 |     2.92% |                     192 |     3.48% |                        196 |     3.55% |
+| 6  |   No of Lose Bets |                     609 |    12.44% |                        677 |    13.83% |                     613 |    11.12% |                        677 |    12.28% |
+| 7  |           Staking |             \$636.98372 |         1 |                \$705.89203 |         1 |              \$756.2979 |         1 |                \$834.32032 |         1 |
+| 8  |   Won Bets Stakes |             \$453.43724 |    71.19% |                \$496.09555 |    70.28% |              \$563.6685 |    74.53% |                \$614.24795 |    73.62% |
+| 9  |     Voided Stakes |              \$19.13296 |     3.00% |                 \$22.67241 |     3.21% |               \$27.1151 |     3.59% |                 \$32.12999 |     3.85% |
+| 10 |  Lose Bets Stakes |             -\$99.46758 |   -15.62% |               -\$115.03256 |   -16.30% |             -\$114.7691 |   -15.18% |               -\$125.32954 |   -15.02% |
 
-*table 2.1.1 : Staking breakdown and result of the bets settlement.*
+*table 1.3.1 : Staking breakdown and result of the bets settlement.*
 
-|        Company |           PL |      PL2 |
-|:--------------:|:------------:|:--------:|
-|      Ladbrokes |    33.772411 | 38.25184 |
-|         Bet365 |    34.120624 | 37.19263 |
-|      Macauslot |    35.740062 | 40.23454 |
-|         X10Bet |    37.538487 | 41.64034 |
-|        X188Bet |    36.579289 | 38.25589 |
-|         SBOBET |    40.392461 | 41.90898 |
-|      Mansion88 |    31.219547 | 32.38999 |
-|          YSB88 |    13.167746 | 14.34128 |
-|         X12BET |    36.802466 | 38.19015 |
-| VictorChandler |    24.391917 | 25.95763 |
-|         Canbet |    10.347393 | 10.97516 |
-|    Betinternet |    10.286812 | 11.18731 |
-|       Titanbet |     9.610441 | 10.53726 |
+|        Company |   PL (2011/12) | Ratio (%) | PL2 (2011/12) | Ratio (%) |   PL (2012/13) | Ratio (%) | PL2 (2012/13) | Ratio (%) |
+|:--------------:|:--------------:|:---------:|:-------------:|:---------:|:--------------:|:---------:|:-------------:|:---------:|
+|      Ladbrokes |    \$33.772411 |     9.54% |    \$38.25184 |    10.04% |  \$44.53507895 |     9.92% |  \$46.7763362 |     9.57% |
+|         Bet365 |    \$34.120624 |     9.64% |    \$37.19263 |     9.76% |  \$33.53743752 |     7.47% |  \$40.6766948 |     8.32% |
+|      Macauslot |    \$35.740062 |    10.10% |    \$40.23454 |    10.56% |   \$1.76408658 |     0.39% |   \$1.9329171 |     0.40% |
+|         X10Bet |    \$37.538487 |    10.61% |    \$41.64034 |    10.93% |  \$33.62892077 |     7.49% |  \$40.6921976 |     8.32% |
+|        X188Bet |    \$36.579289 |    10.33% |    \$38.25589 |    10.04% |  \$41.05668234 |     9.15% |  \$46.1156378 |     9.43% |
+|         SBOBET |    \$40.392461 |    11.41% |    \$41.90898 |    11.00% |  \$43.50915478 |     9.69% |  \$47.8308212 |     9.78% |
+|      Mansion88 |    \$31.219547 |     8.82% |    \$32.38999 |     8.50% |  \$42.44403404 |     9.46% |  \$43.9521665 |     8.99% |
+|          YSB88 |    \$13.167746 |     3.72% |    \$14.34128 |     3.76% |  \$45.92688667 |    10.23% |  \$46.8393963 |     9.58% |
+|         X12BET |    \$36.802466 |    10.40% |    \$38.19015 |    10.02% |  \$36.03065656 |     8.03% |  \$36.2449956 |     7.41% |
+| VictorChandler |    \$24.391917 |     6.89% |    \$25.95763 |     6.81% |  \$45.13420638 |    10.05% |  \$46.2154620 |     9.45% |
+|         Canbet |    \$10.347393 |     2.92% |    \$10.97516 |     2.88% |  \$41.04019224 |     9.14% |  \$46.9617659 |     9.61% |
+|    Betinternet |    \$10.286812 |     2.91% |    \$11.18731 |     2.94% |  \$40.20594752 |     8.96% |  \$44.5435274 |     9.11% |
+|       Titanbet |     \$9.610441 |     2.72% |    \$10.53726 |     2.77% |   \$0.08604952 |     0.02% |   \$0.1364944 |     0.03% |
 
-*table 2.1.2 : Return of Investment on the Odds Price with/without Overrounds.*
+*table 1.3.2 : Breakdown of Operators - Profit & Loss on the Odds Price with/without Overrounds.*
 
-### 1.4 Result of Kelly Staking model on English Soccer 2012/2013
-
-| No |          Category |  Bets_Wf_Overround |  Bets_No_Overround |
-|:--:|:-----------------:|:------------------:|:------------------:|
-| 1  |     No of Matches |          5514.0000 |         5514.00000 |
-| 2  |          Total PL |           448.8993 |          488.91841 |
-| 3  |        No of Bets |          2570.0000 |         2697.00000 |
-| 4  |    No of Won Bets |          1765.0000 |         1824.00000 |
-| 5  | No of Voided Bets |           192.0000 |          196.00000 |
-| 6  |   No of Lose Bets |           613.0000 |          677.00000 |
-| 7  |           Staking |           756.2979 |          834.32032 |
-| 8  |   Won Bets Stakes |           563.6685 |          614.24795 |
-| 9  |     Voided Stakes |            27.1151 |           32.12999 |
-| 10 |  Lose Bets Stakes |          -114.7691 |         -125.32954 |
-
-*table 2.2.1 : Staking breakdown and result of the bets settlement.*
-
-|        Company |           PL |        PL2 |
-|:--------------:|:------------:|:----------:|
-|      Ladbrokes |  44.53507895 | 46.7763362 |
-|         Bet365 |  33.53743752 | 40.6766948 |
-|      Macauslot |   1.76408658 |  1.9329171 |
-|         X10Bet |  33.62892077 | 40.6921976 |
-|        X188Bet |  41.05668234 | 46.1156378 |
-|         SBOBET |  43.50915478 | 47.8308212 |
-|      Mansion88 |  42.44403404 | 43.9521665 |
-|          YSB88 |  45.92688667 | 46.8393963 |
-|         X12BET |  36.03065656 | 36.2449956 |
-| VictorChandler |  45.13420638 | 46.2154620 |
-|         Canbet |  41.04019224 | 46.9617659 |
-|    Betinternet |  40.20594752 | 44.5435274 |
-|       Titanbet |   0.08604952 |  0.1364944 |
-
-*table 2.1.2 : Return of Investment on the Odds Price with/without Overrounds.*
-
-## 2. Comparison of Betting Strategy in Sportsbook Investment
+## 2. Sportsbook Investment Portfolio
 
   By conduct above betting model and get a positive and impressive returns from the experiments, here I have try to retrive the betting model of British sportsbook consultancy firm A.
   
   Besides, by refer to [3. References] I try to build a simple shinyApp for betting model prior to build up my own **Scibrokes®** business website...
 
-### 2.1 ...
+### 2.1 Investment Portfolio
+
+
+### 2.2 Web Base App
 
 **betting-models** shinyApp
 

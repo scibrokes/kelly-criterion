@@ -12,7 +12,7 @@ Load and manipulate the dataset.
 ```{r}
 require('turner', quietly=TRUE)
 
-load('C:/Users/Scibrokes Trading/Documents/GitHub/englianhu/Kelly-Criterion/dataset/dataset.RData')
+load('./data/dataset.RData')
 COModds <- subset(COM_7M1213$AH, names(COM_7M1213$AH) %in% eng1213$MatchID_7M)
 
 # initial odds price
