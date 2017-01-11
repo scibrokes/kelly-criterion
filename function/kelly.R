@@ -1,7 +1,12 @@
-kelly = function(bkbase, mbase, EMbase){
+kelly <- function(bkbase, mbase, EMbase, parallel = FALSE){
   
   ## Saved as RData format file in order to the save the read files time.
   #'@ load('./data/dataset.RData')
+  #'@ COModds <- subset(COM_7M1112$AH, names(COM_7M1112$AH) %in% eng1112$MatchID_7M)
+  ## Example : bkbase = COM_7M1112; mbase = eng1112; EMbase = EM_7M1112
+  
+  ## filter the soccer matches which the teams has selected to calculated
+  #'@ eng1112b <- subset(eng1112, MatchID_7M %in% EM_7M1112$FT$FTAH$MatchID)
   
   ## ------------------- option setting and load packages -----------------------
   options(warn = -1)
@@ -11,40 +16,53 @@ kelly = function(bkbase, mbase, EMbase){
   }
   suppressMessages(library('plyr'))
   
-  pkgs <- c('tidyverse', 'turner', 'reshape2', 'formattable', 'DT', 'highcharter')
+  pkgs <- c('tidyverse', 'turner', 'reshape2', 'formattable', 'DT', 'highcharter', '')
   suppressMessages(l_ply(pkgs, library, character.only = TRUE))
+  rm(pkgs)
   
   ## ------------------- Read Data ----------------------------------------------
-  COModds = subset(bkbase$AH, names(bkbase$AH) %in% mbase$MatchID_7M)
+  #'@ COModds = subset(bkbase$AH, names(bkbase$AH) %in% mbase$MatchID_7M)
+  COModds <- bkbase$AH[names(bkbase$AH) %in% mbase$MatchID_7M]
   
   ## initial odds price
-  ini.odds = lapply(COModds, function(x) na.omit(x)[1,-1])
-  ini.odds = lapply(ini.odds, function(x){ 
-    df_to_blocks(x, blocks = c(rep(3, ncol(x) / 3)), byrow = FALSE)})
+  ini.odds <- llply(COModds, function(x) na.omit(x)[1, -1])
+  ini.odds <- llply(ini.odds, function(x){ 
+    df_to_blocks(x, blocks = c(rep(3, ncol(x) / 3)), byrow = FALSE)}, .parallel = parallel)
   
-  ini.odds2 = lapply(seq(ini.odds), function(i) {
-    lapply(seq(ini.odds[[i]]),function(j) {
+  ini.odds2 <- llply(seq(ini.odds), function(i) {
+    llply(seq(ini.odds[[i]]),function(j) {
       COM = substr(names(ini.odds[[i]][[j]]), 1, 
                  nchar(names(ini.odds[[i]][[j]])) - 3)[1]
       names(ini.odds[[i]][[j]]) = c('AH', 'HM', 'AW')
-      data.frame(MatchID = names(ini.odds)[[i]], COM, ini.odds[[i]][[j]])}) })
-  iniOdds = Reduce(function(x, y) merge(x, y, all = T), 
-                   unlist(ini.odds2, recursive = F), accumulate = F)
-  iniOdds = iniOdds[iniOdds$MatchID %in% EMbase$FT$FTAH$MatchID,]
-  iniOdds$Spreads = iniOdds$HM + iniOdds$AW
-  rm(ini.odds, ini.odds2)
+      data.frame(MatchID = names(ini.odds)[[i]], COM, ini.odds[[i]][[j]])}) }, 
+    .parallel = parallel)
+  
+  #'@ > system.time(suppressMessages(join_all(unlist(ini.odds2, recursive = F), type = 'full')) %>% tbl_df)
+  # user  system elapsed 
+  # 37.59    0.00   37.69 
+  #'@ > system.time(Reduce(function(x, y) merge(x, y, all = T), unlist(ini.odds2, recursive = F), accumulate = F) %>% tbl_df)
+  # user  system elapsed 
+  # 53.56    0.02   54.87
+  iniOdds <- suppressMessages(join_all(unlist(ini.odds2, recursive = F), type = 'full')) %>% tbl_df
+  
+  #'@ iniOdds = iniOdds[iniOdds$MatchID %in% EMbase$FT$FTAH$MatchID, ]
+  #'@ iniOdds$Spreads = iniOdds$HM + iniOdds$AW
+  iniOdds %<>% .[.$MatchID %in% EMbase$FT$FTAH$MatchID, ] %>% mutate(Spreads = HM + AW)
+  
+  rm(COModds, ini.odds, ini.odds2)
   
   ## ------------------- Data Manipulation --------------------------------------
   ## Manipulate and reshape the dataset.
-  # EMbase$FT$FTAH[,1:5]
-  # filter the soccer matches which the teams has selected to calculated
-  mbaseb = subset(mbase, MatchID_7M %in% EMbase$FT$FTAH$MatchID)
+  #'@ EMbase$FT$FTAH[,1:5]
+  ## filter the soccer matches which the teams has selected to calculated
+  mbaseb <- subset(mbase, MatchID_7M %in% EMbase$FT$FTAH$MatchID) %>% tbl_df
   ## validate the observation
   #'@ nrow(EMbase$FT$FTAH)
-
+  
   # filter the initial odds data from 7M by MatchID
-  dat = EMbase$FT$FTAH[EMbase$FT$FTAH$MatchID %in% iniOdds$MatchID,]
+  dat = EMbase$FT$FTAH[EMbase$FT$FTAH$MatchID %in% iniOdds$MatchID,] %>% tbl_df
   # nrow(EMbase$FT$FTAH[EMbase$FT$FTAH$MatchID %in% iniOdds$MatchID,])
+  
   ah = ifelse(nchar(abs(iniOdds$AH * 100)) < 3, 
               paste0('0', abs(iniOdds$AH * 100)), iniOdds$AH * 100)
   ah = ifelse(substr(ah, 1, 1) == '-', paste0('HN', ah), paste0('HP', ah))
@@ -73,6 +91,8 @@ kelly = function(bkbase, mbase, EMbase){
                 id = c('MatchID', 'Round', 'KODate', 'Home', 'Away', 
                        'FTHG', 'FTAG', 'HTHG', 'HTAG'), 
                 variable.name = 'AHCode', value.name = 'EMprob')
+  names(EMOdds)[names(EMOdds) %in% c('variable', 'value')] = c('AHCode', 'EMprob')
+  
   ## validate if the number of observation of EMbase and bkbase is matching
   #'@ length(unique(EMOdds$MatchID))
   #'@ length(unique(iniOdds$MatchID))
@@ -97,6 +117,7 @@ kelly = function(bkbase, mbase, EMbase){
                     Adv2 = (EMprob * RProb) - (1 - EMprob), 
                     Staking = ifelse((Adv / COMOdds) < 0, 0, Adv / COMOdds), 
                     Staking2 = ifelse((Adv2 / COMOdds) < 0, 0, Adv2 / COMOdds))
+  
   ## ------------------- AH & OU Calculator -------------------------------------
   mbase$Output = 0
   for(i in seq(mbase$AH)){
@@ -164,9 +185,7 @@ kelly = function(bkbase, mbase, EMbase){
   #'@  }
   #'@ }; rm(i)
   
-  mbase %<>% mutate(PL = )
-  
-  mbase[1:100,-c(6:9,12:13)]
+  mbase %<>% mutate(PL = ifelse(Output == 'W', COMOdds * mbase$Staking))
   
   ## ------------------- Summary ------------------------------------------
   ## Summary of the betting
@@ -185,9 +204,11 @@ kelly = function(bkbase, mbase, EMbase){
 
 # Total Profit & Lose on different companies
 COMPL = data.frame(PL=sapply(split(mbase,mbase$COM), function(x) sum(x$PL)), PL2=sapply(split(mbase,mbase$COM), function(x) sum(x$PL2)))
-Summary
-COMPL
 
-COMPL %>% tbl_df %>% mutate(PL = currency(PL), PL.R = percent(PL/sum(PL)), PL2 = currency(PL2), PL2.R = percent(PL2/sum(PL2)))
-}
+  Summary %<>% tbl_df
+  
+  COMPL %<>% tbl_df %>% mutate(PL = currency(PL), PL.R = percent(PL/sum(PL)), PL2 = currency(PL2), PL2.R = percent(PL2/sum(PL2)))
+  
+  return(list(mbase, Summary, COMPL))
+  }
 

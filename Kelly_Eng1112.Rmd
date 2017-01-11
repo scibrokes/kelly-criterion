@@ -6,11 +6,12 @@ date: "Thursday, December 25, 2014"
 output: html_document
 ---
 
-I tried to scrap the odds price from 7M and NowGoal website, and apply Kelly-Criterion Model, from the simulatioin we can know that the EM model is profitable. However real-time trading platform is the future project which need to start soon... <https://github.com/englianhu/Kelly-Criterion>.
+  I tried to scrap the odds price from 7M and NowGoal website, and apply Kelly-Criterion Model, from the simulatioin we can know that the EM model is profitable. However real-time trading platform is the future project which need to start soon... <https://github.com/englianhu/Kelly-Criterion>.
 
-Load and manipulate the dataset.
+  Load and manipulate the dataset.
+
 ```{r}
-require('turner', quietly=TRUE)
+suppressMessages(library('turner'))
 
 load('./data/dataset.RData')
 COModds <- subset(COM_7M1112$AH, names(COM_7M1112$AH) %in% eng1112$MatchID_7M)
@@ -29,9 +30,10 @@ iniOdds$Spreads <- iniOdds$HM + iniOdds$AW
 rm(ini.odds, ini.odds2)
 ```
 
-Manipulate and reshape the dataset
+  Manipulate and reshape the dataset
+
 ```{r}
-library('reshape2')
+suppressMessages(library('reshape2'))
 
 # EM_7M1112$FT$FTAH[,1:5]
 # filter the soccer matches which the teams has selected to calculated
@@ -58,12 +60,13 @@ iniOdds$RProb <- iniOdds$COMOdds * 2/iniOdds$Spreads
 rm(iniHM, iniAW)
 ```
 
-Merge the dataset
+  Merge the dataset
+
 ```{r}
 # Filter the MatchID of EM_7M and iniOdds
-EMOdds <- melt(EM_7M1112$FT$FTAH,id=c('MatchID','Round','KODate','Home',
-                                      'Away','FTHG','FTAG','HTHG','HTAG'),
-               variable.name='AHCode', value.name='EMprob')
+EMOdds <- melt(EM_7M1112$FT$FTAH, id = c('MatchID', 'Round', 'KODate', 'Home', 'Away', 'FTHG', 'FTAG', 'HTHG', 'HTAG'), variable.name = 'AHCode', value.name = 'EMprob')
+names(EMOdds)[names(EMOdds) %in% c('variable', 'value')] = c('AHCode', 'EMprob')
+
 length(unique(EMOdds$MatchID))
 length(unique(iniOdds$MatchID))
 
@@ -72,7 +75,8 @@ mbase <- merge(iniOdds, EMOdds, by=c("MatchID","AHCode"))
 mbase$AH <- ifelse(substr(mbase$AHCode,2,2)=='N', -abs(mbase$AH), abs(mbase$AH))
 ```
 
-AH Calculator and Kelly-Betting
+  AH Calculator and Kelly-Betting
+
 ```{r}
 # -----------------------------------------------------------------------------
 # Kelly criterion
@@ -156,11 +160,14 @@ for(i in seq(mbase$Output)){
 mbase[1:100,-c(6:9,12:13)]
 ```
 
-Summary of the betting
+  Summary of the betting
+
 ```{r}
+suppressMessages(library('formattable'))
+suppressMessages(library('tidyverse'))
+
 Summary <- data.frame(
-  Category = c('No of Matches','Total PL','No of Bets','No of Won Bets','No of Voided Bets','No of Lose Bets',
-              'Staking','Won Bets Stakes','Voided Stakes','Lose Bets Stakes'),
+  Category = c('No of Matches','Total PL','No of Bets','No of Won Bets','No of Voided Bets','No of Lose Bets', 'Staking','Won Bets Stakes','Voided Stakes','Lose Bets Stakes'),
   Bets_Wf_Overround = c(nrow(mbase), sum(mbase$PL), length(mbase[mbase$Staking>0,]$Staking), length(mbase[mbase$PL>0,]$PL),
                       length(mbase[mbase$PL==0 & mbase$Staking>0,]$PL), length(mbase[mbase$PL<0,]$PL),
                       sum(mbase[mbase$Staking>0,]$Staking), sum(mbase[mbase$PL>0,]$PL),
@@ -172,10 +179,10 @@ Summary <- data.frame(
 
 # Total Profit & Lose on different companies
 COMPL <- data.frame(PL=sapply(split(mbase,mbase$COM), function(x) sum(x$PL)), PL2=sapply(split(mbase,mbase$COM), function(x) sum(x$PL2)))
-Summary
-COMPL
+
+Summary %>% formattable %>% as.htmlwidget
 ```
 
-```{r }
+```{r}
 COMPL %>% tbl_df %>% mutate(PL = currency(PL), PL.R = percent(PL/sum(PL)), PL2 = currency(PL2), PL2.R = percent(PL2/sum(PL2)))
 ```

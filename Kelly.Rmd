@@ -1,7 +1,7 @@
 ---
 title: "Application of Kelly Criterion model in Sportsbook Investment"
 subtitle: "English Soccer League"
-author: "[®γσ, Eng Lian Hu](https://englianhu.github.io/) <img src='figure/ShirotoNorimichi2.jpg' width='24'> 白戸則道®"
+author: "[®γ�?, Eng Lian Hu](https://englianhu.github.io/) <img src='figure/ShirotoNorimichi2.jpg' width='24'> 白戸�?道®"
 date: "`r Sys.Date()`"
 output:
   tint::tintHtml: 
@@ -91,6 +91,12 @@ load('./data/dataset.RData')
 
 5) http://www.aussportsbetting.com/2010/07/27/kelly-criterion-fractional-kelly-betting/ (Full and Fractional Kelly on Sportsbook)
 6) http://ibankcoin.com/hattery/tag/money-management-2/ (plot the stakes with return based on Kelly model)
+7) http://www.thertrader.com/2015/03/23/factor-evaluation-in-quantitative-portfolio-management/
+
+## Best models, need to refer
+  - [**Kelly vs. Markowitz Portfolio Optimization**](http://epchan.blogspot.my/2014/08/kelly-vs-markowitz-portfolio.html)
+  - [**Testing Kelly Criterion and Optimal f in R**](https://alphaism.wordpress.com/2012/04/13/testing-kelly-criterion-and-optimal-f-in-r/)
+ - [Optimal-f, Monte Carlo, and Kelly](http://www.tradingblox.com/forum/viewtopic.php?t=177)
 
 ### Reference for Shiny App web struture
 1) https://gianlubaio.blogspot.my/2016/10/shiny-happy-people-in-land-of-czar.html
@@ -146,7 +152,7 @@ COMPL
   - [**rmarkdown** package](https://github.com/rstudio/rmarkdown) version: `r packageVersion('rmarkdown')`
   - [**tint** package](http://dirk.eddelbuettel.com/code/tint.html) version: `r packageVersion('tint')`
   - File version: 1.0.0
-  - Author Profile: [®γσ, Eng Lian Hu](https://beta.rstudioconnect.com/englianhu/ryo-eng/)
+  - Author Profile: [®γ�?, Eng Lian Hu](https://beta.rstudioconnect.com/englianhu/ryo-eng/)
   - GitHub: [Source Code](https://github.com/scibrokes/kelly-criterion)
   - Additional session information
   
@@ -180,4 +186,4 @@ rm(sys1)
 
   1. [**Creating a Profitable Betting Strategy for Football by Using Statistical Modelling** *by Niko Marttinen (2006)*](https://github.com/scibrokes/betting-strategy-and-model-validation/blob/master/references/Creating%20a%20Profitable%20Betting%20Strategy%20for%20Football%20by%20Using%20Statistical%20Modelling.pdf)
 
-**Powered by - Copyright® Intellectual Property Rights of <img src='figure/oda-army.jpg' width='24'> [Scibrokes®](http://www.scibrokes.com)個人の経営企業**
+**Powered by - Copyright® Intellectual Property Rights of <img src='figure/oda-army.jpg' width='24'> [ScibrokesR](http://www.scibrokes.com)**

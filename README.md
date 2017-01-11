@@ -63,7 +63,16 @@
 
 **betting-models** shinyApp
 
-
+  Based on [Betting-Strategy-and-Model-Validation](https://github.com/scibrokes/betting-strategy-and-model-validation), in order to test the risk of ruin, here I focus on English soccer leagues which will write as an shinyApp and set few elastic adjusters to test the efficiency of the sportsbook investment fund :
+  
+  - the initial fund size
+  - betting stakes
+  - average follwed odds price
+  - missing followed bets
+  - investment fund portfolio management
+  - regular investor refill or pump into initial fund pool
+  
+  Secondly, application of own *Rmodel* [Odds Modelling and Testing Inefficiency of Sports Bookmakers](https://github.com/scibrokes/odds-modelling-and-testing-inefficiency-of-sports-bookmakers) to test the efficiency and comparison.
 
 ## 3. References
 
