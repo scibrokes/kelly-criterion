@@ -67,9 +67,9 @@
   
   - the initial fund size
   - betting stakes
-  - average follwed odds price
+  - average follwed odds price (volatility of odds price, ets, arima and garch models.)
   - missing followed bets
-  - investment fund portfolio management
+  - investment fund portfolio management (markotwitz and Kelly criteria)
   - regular investor refill or pump into initial fund pool
   
   Secondly, application of own *Rmodel* [Odds Modelling and Testing Inefficiency of Sports Bookmakers](https://github.com/scibrokes/odds-modelling-and-testing-inefficiency-of-sports-bookmakers) to test the efficiency and comparison.
@@ -81,6 +81,6 @@
 3. [**Systematic Investor Toolbox (SIT)** *by Michael Kapler (2012)*](https://github.com/englianhu/SIT)
 4. [**MatchOdds.org** *by Simon Collins (2010)*](http://www.matchodds.org/ords/f?p=101:1::::::)
 5. [**Bayesian statistics, health economics and random stuff** *by Gianluca Baio*](https://gianlubaio.blogspot.my/2016/10/shiny-happy-people-in-land-of-czar.html)
-6. [**Sportsbook Pricing and Informed Bettors in the Early and Late Season in the NBA** *by Rodney Paul, Andrew Weinbach and Brad Humphreys*]()
+6. [**Sportsbook Pricing and Informed Bettors in the Early and Late Season in the NBA** *by Rodney Paul, Andrew Weinbach and Brad Humphreys (2013)*](https://github.com/scibrokes/kelly-criterion/blob/master/references/Sportsbook%20Pricing%20and%20Informed%20Bettors%20in%20the%20Early%20and%20Late%20Season%20in%20the%20NBA.pdf)
 
 **Powered by - Copyright® Intellectual Property Rights of <img src='figure/oda-army.jpg' width='24'> [Scibrokes®](http://www.scibrokes.com)個人の経営企業**
