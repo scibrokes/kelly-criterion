@@ -76,11 +76,15 @@
 
 ## 3. References
 
-1. [**Odds Modelling and Testing Inefficiency of Sports Bookmakers : Rmodel** by ®γσ, Eng Lian Hu (2016)](https://github.com/scibrokes/odds-modelling-and-testing-inefficiency-of-sports-bookmakers/blob/master/Odds%20Modelling%20and%20Testing%20Inefficiency%20of%20Sports-Bookmakers.pdf)
-2. [**Betting-Strategy-and-Model-Validation** by ®γσ, Eng Lian Hu (2016)](https://github.com/scibrokes/betting-strategy-and-model-validation)
-3. [**Systematic Investor Toolbox (SIT)** *by Michael Kapler (2012)*](https://github.com/englianhu/SIT)
-4. [**MatchOdds.org** *by Simon Collins (2010)*](http://www.matchodds.org/ords/f?p=101:1::::::)
-5. [**Bayesian statistics, health economics and random stuff** *by Gianluca Baio*](https://gianlubaio.blogspot.my/2016/10/shiny-happy-people-in-land-of-czar.html)
-6. [**Sportsbook Pricing and Informed Bettors in the Early and Late Season in the NBA** *by Rodney Paul, Andrew Weinbach and Brad Humphreys (2013)*](https://github.com/scibrokes/kelly-criterion/blob/master/references/Sportsbook%20Pricing%20and%20Informed%20Bettors%20in%20the%20Early%20and%20Late%20Season%20in%20the%20NBA.pdf)
+ 1. [**Odds Modelling and Testing Inefficiency of Sports Bookmakers : Rmodel** by ®γσ, Eng Lian Hu (2016)](https://github.com/scibrokes/odds-modelling-and-testing-inefficiency-of-sports-bookmakers/blob/master/Odds%20Modelling%20and%20Testing%20Inefficiency%20of%20Sports-Bookmakers.pdf)
+ 2. [**Betting-Strategy-and-Model-Validation** by ®γσ, Eng Lian Hu (2016)](https://github.com/scibrokes/betting-strategy-and-model-validation)
+ 3. [**Systematic Investor Toolbox (SIT)** *by Michael Kapler (2012)*](https://github.com/englianhu/SIT)
+ 4. [**MatchOdds.org** *by Simon Collins (2010)*](http://www.matchodds.org/ords/f?p=101:1::::::)
+ 5. [**Bayesian statistics, health economics and random stuff** *by Gianluca Baio*](https://gianlubaio.blogspot.my/2016/10/shiny-happy-people-in-land-of-czar.html)
+ 6. [**Sportsbook Pricing and Informed Bettors in the Early and Late Season in the NBA** *by Rodney Paul, Andrew Weinbach and Brad Humphreys (2013)*](https://github.com/scibrokes/kelly-criterion/blob/master/references/Sportsbook%20Pricing%20and%20Informed%20Bettors%20in%20the%20Early%20and%20Late%20Season%20in%20the%20NBA.pdf)
+ 7. [The Kelly Criterion in Applied Portfolio Selection](https://www.r-bloggers.com/the-kelly-criterion-in-applied-portfolio-selection/)
+ 8. [The Kelly Criterion in Applied Portfolio Selection – Part 2](https://www.r-bloggers.com/the-kelly-criterion-in-applied-portfolio-selection-part-2/)
+ 9. [The Kelly Criterion — Does It Work?](https://quantstrattrader.wordpress.com/2017/09/29/the-kelly-criterion-does-it-work/)
+
 
 **Powered by - Copyright® Intellectual Property Rights of <img src='figure/oda-army.jpg' width='24'> [Scibrokes®](http://www.scibrokes.com)個人の経営企業**
