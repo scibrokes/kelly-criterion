@@ -87,4 +87,5 @@
  9. [The Kelly Criterion — Does It Work?](https://quantstrattrader.wordpress.com/2017/09/29/the-kelly-criterion-does-it-work/)
 
 
+
 **Powered by - Copyright® Intellectual Property Rights of <img src='figure/oda-army.jpg' width='24'> [Scibrokes®](http://www.scibrokes.com)個人の経営企業**
